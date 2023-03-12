@@ -45,6 +45,5 @@
   },
   "devDependencies": {
     "tailwindcss": "^3.2.7"
-  },
-  "homepage": "ben-732.github.io/ben-732.github.io"
+  }
 }

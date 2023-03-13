@@ -4,7 +4,7 @@ import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 
 import background_img from "./images/main_bg.jpeg";
 
-function App() {
+function Landing() {
   console.log(background_img);
   return (
     <div className="w-screen  ">
@@ -39,4 +39,4 @@ function App() {
   );
 }
 
-export default App;
+export default Landing;

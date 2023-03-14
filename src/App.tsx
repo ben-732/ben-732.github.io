@@ -11,7 +11,7 @@ function App() {
   return (
     <div
       className="w-screen  bg-cover"
-      style={{ backgroundImage: `url(${background_img})` }}
+      // style={{ backgroundImage: `url(${background_img})` }}
     >
       <Landing />
       <Projects />

@@ -6,11 +6,19 @@ import background_img from "./images/main_bg.jpeg";
 
 function Landing() {
   console.log(background_img);
+  function scroll() {
+    window.scroll({
+      top: window.innerHeight,
+      left: 0,
+      behavior: "smooth",
+    });
+  }
   return (
-    <div className="w-screen  ">
+    <>
+      {" "}
       <div
-        className="w-full h-screen absolute bg-black  bg-cover bg-left"
-        style={{ backgroundImage: `url(${background_img})` }}
+        className="w-full h-screen   bg-cover bg-left"
+        // style={{ backgroundImage: `url(${background_img})` }}
       >
         <div className="w-96 absolute top-36 left-24 text-white ">
           <span className="text-3xl text-white block font-extralight mb-2 border-b-2 ">
@@ -29,13 +37,16 @@ function Landing() {
           </div>
 
           <div className="mt-4 ">
-            <span className="hover:scale-105 transition-all cursor-pointer inline-block text-left">
+            <span
+              className="hover:scale-105 transition-all cursor-pointer inline-block text-left"
+              onClick={() => scroll()}
+            >
               My Projects
             </span>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

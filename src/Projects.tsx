@@ -2,10 +2,7 @@ import React from "react";
 
 import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 
-import background_img from "./images/projects.jpg";
-
 function Projects() {
-  console.log(background_img);
   return (
     <>
       <div

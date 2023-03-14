@@ -2,15 +2,13 @@ import React from "react";
 
 import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 
-import background_img from "./images/Bigbackground.jpg";
 import Landing from "./Landing";
 import Projects from "./Projects";
 
 function App() {
-  console.log(background_img);
   return (
     <div
-      className="w-screen  bg-cover"
+      className="w-screen  bg-cover overflow-x-hidden"
       // style={{ backgroundImage: `url(${background_img})` }}
     >
       <Landing />

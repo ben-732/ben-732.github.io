@@ -9,7 +9,7 @@ function Projects() {
   return (
     <>
       <div
-        className="w-full h-screen mt-screen  bg-black "
+        className="w-full h-screen mt-screen  bg-deep-blue "
         // style={{ backgroundImage: `url(${background_img})` }}
       >
         <div className="w-full h-full flex">

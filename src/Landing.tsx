@@ -2,7 +2,7 @@ import React from "react";
 
 import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 
-import background_img from "./images/bg_small_fade.png";
+import background_img from "./images/bg_small_fade-2.png";
 
 function Landing() {
   console.log(background_img);
@@ -17,7 +17,7 @@ function Landing() {
     <>
       {" "}
       <div
-        className="w-full h-screen  bg-black bg-no-repeat bg-contain bg-right-top"
+        className="w-full h-screen  bg-deep-blue bg-no-repeat bg-contain bg-right-top"
         style={{ backgroundImage: `url(${background_img})` }}
       >
         <div className="w-96 absolute top-36 left-24 text-white ">

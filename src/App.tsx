@@ -8,7 +8,7 @@ import Projects from "./Projects";
 function App() {
   return (
     <div
-      className="w-screen  bg-cover overflow-x-hidden"
+      className="w-full bg-cover overflow-x-hidden"
       // style={{ backgroundImage: `url(${background_img})` }}
     >
       <Landing />

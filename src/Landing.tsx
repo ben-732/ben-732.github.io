@@ -17,7 +17,7 @@ function Landing() {
     <>
       {" "}
       <div
-        className="h-screen bg-deep-blue bg-no-repeat bg-contain bg-right-top"
+        className="h-screen overflow-x-hidden bg-deep-blue bg-no-repeat bg-contain bg-right-top"
         style={{ backgroundImage: `url(${background_img})` }}
       >
         <div className="flex flex-col text-white min-w-min max-w-lg pt-40 items-center">

@@ -36,7 +36,7 @@ function Projects() {
         // style={{ backgroundImage: `url(${background_img})` }}
       >
         <div className=" h-full flex-col flex pt-20 ml-20">
-          <span className="text-white text-2xl font-extralight mb-4 block">
+          <span className="text-white text-3xl ml-4 mt-2 font-extralight mb-4 block">
             My Projects
           </span>
           <div className="flex flex-row">
@@ -44,7 +44,7 @@ function Projects() {
               return (
                 <div className="flex flex-col text-white w-96  p-6 rounded-2xl mr-4 flex-wrap transition-all hover:scale-[1.02] bg-deep-blue bg-opacity-70">
                   <div className="flex flex-row items-center">
-                    <span className="text-white text-xl font-extralight block">
+                    <span className="text-white text-xl  block">
                       {project.name}
                     </span>
                     <span className="flex-grow"></span>

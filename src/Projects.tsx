@@ -35,14 +35,14 @@ function Projects() {
         className=" h-screen mt-screen  bg-gradient-to-b from-[#010105] bg-purple-900 flex flex-col items-center  "
         // style={{ backgroundImage: `url(${background_img})` }}
       >
-        <div className=" h-full flex-col flex pt-20 md:w-4/5 items-center lg:items-start">
+        <div className=" h-full flex-col flex pt-20 mx-2 sm:mx-0 md:w-4/5 items-center lg:items-start">
           <span className="text-white text-3xl lg:ml-4 mt-2 font-extralight mb-4 block">
             My Projects
           </span>
           <div className="flex flex-row flex-wrap justify-center items-start">
             {projectsList.map((project) => {
               return (
-                <div className="flex flex-col text-white w-96 mb-4 p-6 rounded-2xl mr-4 flex-wrap transition-all hover:scale-[1.02] bg-deep-blue bg-opacity-70">
+                <div className="flex flex-col text-white w-80 sm:w-96 m-2 p-5  sm:p-6 rounded-2xl  flex-wrap transition-all hover:scale-[1.02] bg-deep-blue bg-opacity-70">
                   <div className="flex flex-row items-center">
                     <span className="text-white text-xl  block">
                       {project.name}

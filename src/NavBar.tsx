@@ -38,11 +38,11 @@ function NavBar() {
 
   return (
     <div
-      className={`transition-all delay-150 fixed flex justify-start gap-4 px-4 h-10 items-center text-white ${
+      className={`transition-all delay-150 fixed flex justify-start gap-4 px-4 h-12 items-center text-white ${
         showNav ? "mt-0" : "-mt-20"
       } bg-gray-900 z-10  w-full`}
     >
-      <span className="text-md font-medium">Ben McMurtrie</span>
+      <span className=" text-lg font-medium">Ben McMurtrie</span>
       <NavButton section="home" activeSection={activeSection} />
       <NavButton section="projects" activeSection={activeSection} />
       <NavButton section="skills" activeSection={activeSection} />

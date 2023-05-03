@@ -32,6 +32,9 @@ function Skills() {
           <span className="text-white text-3xl lg:ml-4 mt-2 font-extralight mb-4 block">
             Skills
           </span>
+          <div className="text-white lg:ml-4 mt-2">
+            They exist... They're just not on here yet ?
+          </div>
         </div>
       </div>
     </>

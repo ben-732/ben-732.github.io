@@ -59,7 +59,7 @@ function Projects() {
           <div className="flex flex-row flex-wrap justify-center items-start">
             {projectsList.map((project) => {
               return (
-                <div className="flex flex-col text-white w-80 sm:w-96 m-2 p-5  sm:p-6 rounded-2xl  flex-wrap transition-all hover:scale-[1.02] bg-deep-blue bg-opacity-70">
+                <div className="flex flex-col text-white w-80 sm:w-96 m-2 p-5  sm:p-6 rounded-2xl  flex-wrap transition-all hover:scale-[1.02] bg-deep-blue bg-opacity-70 z-100">
                   <div className="flex flex-row items-center">
                     <span className="text-white text-xl  block">
                       {project.name}

@@ -2,8 +2,16 @@ import React from "react";
 
 import { AiFillGithub } from "react-icons/ai";
 import { DiNodejsSmall } from "react-icons/di";
-import { SiTypescript, SiMongodb, SiExpress } from "react-icons/si";
+import {
+  SiTypescript,
+  SiMongodb,
+  SiExpress,
+  SiTailwindcss,
+  SiNextdotjs,
+} from "react-icons/si";
 import { IoLogoReact } from "react-icons/io5";
+
+import { CgWebsite } from "react-icons/cg";
 
 const techIcons: { [index: string]: JSX.Element } = {
   NodeJS: <DiNodejsSmall />,
@@ -11,20 +19,29 @@ const techIcons: { [index: string]: JSX.Element } = {
   TypeScript: <SiTypescript />,
   MongoDB: <SiMongodb />,
   Express: <SiExpress />,
+  TailwindCSS: <SiTailwindcss />,
+  NextJS: <SiNextdotjs />,
 };
 
 const projectsList = [
   {
-    name: "Project 1",
-    description: "This is a project, Here is some more info about it",
-    github: "https://github.com/ben-732/budget-no",
-    technologies: ["React", "TypeScript", "NodeJS"],
+    name: "Personal Website",
+    description: "",
+    github: "https://github.com/ben-732/ben-732.github.io",
+    website: "#home",
+    technologies: ["React", "TailwindCSS", "TypeScript"],
   },
   {
-    name: "Project 2",
-    description: "This is another project, there is no more info",
-    github: "https://github.com/ben-732/l3digi",
-    technologies: ["React", "Express", "NodeJS", "MongoDB"],
+    name: "Recipe Book",
+    description: "Recipe Book built with NextJS and MongoDB.",
+    github: "https://github.com/ben-732/recipes",
+    technologies: ["NextJS", "MongoDB", "TailwindCSS", "TypeScript"],
+  },
+  {
+    name: "Fuel Tracker",
+    description: "React PWA to track my fuel consumption and efficiency.",
+    github: "https://github.com/ben-732/fuel-tracker",
+    technologies: ["React", "TailwindCSS", "TypeScript"],
   },
 ];
 
@@ -48,19 +65,25 @@ function Projects() {
                       {project.name}
                     </span>
                     <span className="flex-grow"></span>
+                    {project.website && project.website.length > 0 && (
+                      <a className="mr-2" href={project.website}>
+                        <CgWebsite className="text-2xl inline-block" />
+                      </a>
+                    )}
+
                     <a href={project.github}>
                       <AiFillGithub className="text-2xl inline-block" />
                     </a>
                   </div>
                   <div className="mt-1 text-md">{project.description}</div>
-                  <div className="mt-2 flex flex-row flex-wrap">
+                  <div className="mt-2 flex flex-row flex-wrap w-full gap-2">
                     {project.technologies.map((tech) => {
                       return (
-                        <div className="flex flex-row items-center justify-center bg-white text-black rounded-full px-4 py-2 mr-2 mb-2">
-                          <span className="text-2xl mr-1">
+                        <div className="flex flex-row items-center justify-center bg-white text-black rounded-md px-2 py-1  ">
+                          <span className="text-lg mr-1">
                             {techIcons[tech]}
                           </span>
-                          <span className="text-md font-bold  ">{tech}</span>
+                          <span className="text-md font-medium">{tech}</span>
                         </div>
                       );
                     })}

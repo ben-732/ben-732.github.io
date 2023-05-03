@@ -21,6 +21,7 @@ function Landing() {
     <>
       {" "}
       <div
+        id="home"
         className="h-screen overflow-x-hidden bg-deep-blue bg-no-repeat md:bg-contain bg-cover bg-[center_top] md:bg-right-top md flex flex-col lg:items-start items-center"
         style={{ backgroundImage: `url(${background_img})` }}
       >
@@ -36,7 +37,7 @@ function Landing() {
               <a href="https://github.com/ben-732/">
                 <AiFillGithub className="text-2xl inline-block" />
               </a>
-              <a href="https://www.linkedin.com/in/ben-mcmurtrie-846689246//">
+              <a href="https://www.linkedin.com/in/ben-mcmurtrie-846689246/">
                 <AiFillLinkedin className="text-2xl inline-block ml-2" />
               </a>
             </div>

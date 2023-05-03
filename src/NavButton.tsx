@@ -26,11 +26,20 @@ export function NavigateTo(section: sections) {
   }
 }
 
-function NavButton({ section }: { section: sections }) {
+function NavButton({
+  section,
+  activeSection,
+}: {
+  section: sections;
+  activeSection: sections;
+}) {
   return (
     <span
+      id={section}
       onClick={() => NavigateTo(section)}
-      className="cursor-pointer hover:text-gray-50  text-gray-400"
+      className={`cursor-pointer hover:text-gray-50  text-gray-400 hover:underline ${
+        activeSection === section ? "text-gray-50" : ""
+      }`}
     >
       {section[0].toUpperCase()}
       {section.substring(1).toLowerCase()}

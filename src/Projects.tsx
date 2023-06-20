@@ -43,13 +43,21 @@ const projectsList = [
     github: "https://github.com/ben-732/fuel-tracker",
     technologies: ["React", "TailwindCSS", "TypeScript"],
   },
+  {
+    name: "Hourglass / Show dashboard",
+    description:
+      "For a show that I worked on, the lights for an hourglass prop that splits apart and can be triggered remotely from a cue control system." +
+      "\n As well as a dashboard to display the connection status of the hourglass and other information about the timing of the show.",
+    github: "https://github.com/ben-732/Hourglass",
+    technologies: ["React", "Express", "C", "Raspberry Pico", "SocketIO"],
+  },
 ];
 
 function Projects() {
   return (
     <>
       <div
-        className=" h-screen mt-screen  bg-gradient-to-b from-[#010105] bg-purple-900 flex flex-col items-center  "
+        className=" h-screen mt-screen  bg-gradient-to-b from-[#010105] bg-[#2d0d45] flex flex-col items-center  "
         // style={{ backgroundImage: `url(${background_img})` }}
       >
         <div className=" h-full flex-col flex pt-20 mx-2 sm:mx-0 md:w-4/5 items-center lg:items-start">

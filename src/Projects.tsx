@@ -45,11 +45,17 @@ const projectsList = [
   },
   {
     name: "Hourglass / Show dashboard",
-    description:
-      "For a show that I worked on, the lights for an hourglass prop that splits apart and can be triggered remotely from a cue control system." +
-      "\n As well as a dashboard to display the connection status of the hourglass and other information about the timing of the show.",
+    description: (
+      <>
+        For a show that I worked on, the lights for an hourglass prop that
+        splits apart and can be triggered remotely from a cue control system.{" "}
+        <br /> <br />I also made a dashboard to display the connection status of
+        the hourglass and other information todo the timing of the show, pulling
+        data in from the lighting console.
+      </>
+    ),
     github: "https://github.com/ben-732/Hourglass",
-    technologies: ["React", "Express", "C", "Raspberry Pico", "SocketIO"],
+    technologies: ["React", "Express", "C", "RP2040", "SocketIO"],
   },
 ];
 
@@ -57,7 +63,7 @@ function Projects() {
   return (
     <>
       <div
-        className=" h-screen mt-screen  bg-gradient-to-b from-[#010105] bg-[#2d0d45] flex flex-col items-center  "
+        className=" h-screen mt-screen bg-[#2d0d45] flex flex-col items-center  "
         // style={{ backgroundImage: `url(${background_img})` }}
       >
         <div className=" h-full flex-col flex pt-20 mx-2 sm:mx-0 md:w-4/5 items-center lg:items-start">

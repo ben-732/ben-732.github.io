@@ -6,6 +6,7 @@ import Landing from "./Landing";
 import Projects from "./Projects";
 import Skills from "./Skills";
 import NavBar from "./NavBar";
+import About from "./About";
 
 function App() {
   return (
@@ -15,8 +16,9 @@ function App() {
     >
       <NavBar />
       <Landing />
+      <About />
       <Projects />
-      <Skills />
+      {/* <Skills /> */}
     </div>
   );
 }

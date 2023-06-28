@@ -42,10 +42,10 @@ function NavBar() {
         showNav ? "mt-0" : "-mt-20"
       } bg-gray-900 z-10  w-full`}
     >
-      <span className=" text-lg font-medium">Ben McMurtrie</span>
+      {/* <span className=" text-lg font-medium">Ben McMurtrie</span> */}
       <NavButton section="home" activeSection={activeSection} />
+      <NavButton section="about" activeSection={activeSection} />
       <NavButton section="projects" activeSection={activeSection} />
-      <NavButton section="skills" activeSection={activeSection} />
     </div>
   );
 }

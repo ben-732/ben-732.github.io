@@ -10,9 +10,9 @@ import background_img from "./images/bg_small_fade-2.png";
 
 function Landing() {
   console.log(background_img);
-  function scroll() {
+  function scroll(section: number) {
     window.scroll({
-      top: window.innerHeight,
+      top: window.innerHeight * section,
       left: 0,
       behavior: "smooth",
     });
@@ -41,10 +41,19 @@ function Landing() {
                 <AiFillLinkedin className="text-2xl inline-block ml-2" />
               </a>
             </div>
-            <div className="mt-2 flex justify-center lg:justify-start">
+            <div className="mt-2 flex flex-col justify-center lg:justify-start">
               <span
-                className=" transition-all hover:text-purple-300 cursor-pointer inline-block text-left mt-4 rounded-lg flex flex-row items-center"
-                onClick={() => scroll()}
+                className=" transition-all  hover:text-purple-300 cursor-pointer  text-left mt-4 rounded-lg flex flex-row items-center"
+                onClick={() => scroll(1)}
+              >
+                <span>About Me</span>
+                <span className="text-xl ml-1">
+                  <AiOutlineArrowDown />
+                </span>
+              </span>
+              <span
+                className=" transition-all   hover:text-purple-300 cursor-pointer  text-left mt-4 rounded-lg flex flex-row items-center"
+                onClick={() => scroll(2)}
               >
                 <span>My Projects</span>
                 <span className="text-xl ml-1">

@@ -1,4 +1,4 @@
-export type sections = "home" | "projects" | "skills";
+export type sections = "home" | "projects" | "skills" | "about";
 
 export function NavigateTo(section: sections) {
   switch (section) {
@@ -9,14 +9,14 @@ export function NavigateTo(section: sections) {
         behavior: "smooth",
       });
       break;
-    case "projects":
+    case "about":
       window.scroll({
         top: window.innerHeight,
         left: 0,
         behavior: "smooth",
       });
       break;
-    case "skills":
+    case "projects":
       window.scroll({
         top: window.innerHeight * 2,
         left: 0,
@@ -41,8 +41,9 @@ function NavButton({
         activeSection === section ? "text-gray-50" : ""
       }`}
     >
-      {section[0].toUpperCase()}
-      {section.substring(1).toLowerCase()}
+      {section === "home"
+        ? "Ben McMurtrie"
+        : section[0].toUpperCase() + section.substring(1).toLowerCase()}
     </span>
   );
 }

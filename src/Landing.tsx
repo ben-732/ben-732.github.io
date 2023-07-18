@@ -37,7 +37,7 @@ function Landing() {
               <a href="https://github.com/ben-732/">
                 <AiFillGithub className="text-2xl inline-block" />
               </a>
-              <a href="https://www.linkedin.com/in/ben-mcmurtrie-846689246/">
+              <a href="www.linkedin.com/in/ben732/">
                 <AiFillLinkedin className="text-2xl inline-block ml-2" />
               </a>
             </div>

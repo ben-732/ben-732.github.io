@@ -2,17 +2,30 @@ import React from "react";
 
 const sections = [
   {
-    title: "Auckland Uni",
+    title: "University of Auckland",
     body: (
       <>
         I'm a Part 2 Software Engineering student at the university of Auckland.
         <ul className="list-disc mt-2">
           <li className="ml-6">Deans honours list 2022</li>
+          <li className="ml-6">8.0+ GPA</li>
+          <li className="ml-6">
+            <a
+              className="text-primary transition duration-150 ease-in-out underline text-blue-600"
+              href="https://www.auckland.ac.nz/en/engineering/current-students/student-support/part-i-assistance-centre.html"
+            >
+              P1AC
+            </a>{" "}
+            Mentor Sem 2 2023
+          </li>
         </ul>
       </>
     ),
   },
-  {},
+  {
+    title: "Mahurangi College",
+    body: <>I attended Mahurangi College from 2015 - 2021</>,
+  },
 ];
 
 function About() {

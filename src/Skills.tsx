@@ -8,6 +8,7 @@ import {
   SiExpress,
   SiTailwindcss,
   SiNextdotjs,
+  SiRaspberrypi,
 } from "react-icons/si";
 import { IoLogoReact } from "react-icons/io5";
 
@@ -19,6 +20,7 @@ const techIcons: { [index: string]: JSX.Element } = {
   Express: <SiExpress />,
   TailwindCSS: <SiTailwindcss />,
   NextJS: <SiNextdotjs />,
+  RP2040: <SiRaspberrypi />,
 };
 
 function Skills() {

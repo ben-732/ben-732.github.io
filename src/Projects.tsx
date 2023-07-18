@@ -8,6 +8,9 @@ import {
   SiExpress,
   SiTailwindcss,
   SiNextdotjs,
+  SiRaspberrypi,
+  SiSocketdotio,
+  SiC,
 } from "react-icons/si";
 import { IoLogoReact } from "react-icons/io5";
 
@@ -21,6 +24,9 @@ const techIcons: { [index: string]: JSX.Element } = {
   Express: <SiExpress />,
   TailwindCSS: <SiTailwindcss />,
   NextJS: <SiNextdotjs />,
+  RP2040: <SiRaspberrypi />,
+  SocketIO: <SiSocketdotio />,
+  C: <SiC />,
 };
 
 const projectsList = [

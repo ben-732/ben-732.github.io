@@ -31,24 +31,25 @@ const techIcons: { [index: string]: JSX.Element } = {
 
 const projectsList = [
   {
-    name: "Personal Website",
-    description: "",
+    name: "Personal Portfolio",
+    description: "This website, built in react to showcase some of my projects",
     github: "https://github.com/ben-732/ben-732.github.io",
     website: "#home",
     technologies: ["React", "TailwindCSS", "TypeScript"],
   },
   {
     name: "Recipe Book",
-    description: "Recipe Book built with NextJS and MongoDB.",
+    description:
+      "Recipe Book built with NextJS and MongoDB. \n \n Focus on accessibility and mobile first design, with an intuitive UI to make entering recipes simple and easy.",
     github: "https://github.com/ben-732/recipes",
     technologies: ["NextJS", "MongoDB", "TailwindCSS", "TypeScript"],
   },
-  {
-    name: "Fuel Tracker",
-    description: "React PWA to track my fuel consumption and efficiency.",
-    github: "https://github.com/ben-732/fuel-tracker",
-    technologies: ["React", "TailwindCSS", "TypeScript"],
-  },
+  // {
+  //   name: "Fuel Tracker",
+  //   description: "React PWA to track my fuel consumption and efficiency.",
+  //   github: "https://github.com/ben-732/fuel-tracker",
+  //   technologies: ["React", "TailwindCSS", "TypeScript"],
+  // },
   {
     name: "Hourglass / Show dashboard",
     description: (
@@ -76,15 +77,14 @@ function Projects() {
           <span className="text-white text-3xl lg:ml-4 mt-2 font-extralight mb-4 block">
             My Projects
           </span>
-          <div className="flex flex-row flex-wrap justify-center items-start">
+          <div className="flex flex-col flex-wrap justify-center items-start w-full">
             {projectsList.map((project) => {
               return (
-                <div className="flex flex-col text-white w-80 sm:w-96 m-2 p-5  sm:p-6 rounded-2xl  flex-wrap transition-all hover:scale-[1.02] bg-deep-blue bg-opacity-70 z-100">
+                <div className="flex flex-col text-white w-full  m-2 p-5  sm:p-6 rounded-2xl  flex-wrap   bg-deep-blue bg-opacity-20 z-100">
                   <div className="flex flex-row items-center">
-                    <span className="text-white text-xl  block">
+                    <span className="text-white text-xl  block mr-4">
                       {project.name}
                     </span>
-                    <span className="flex-grow"></span>
                     {project.website && project.website.length > 0 && (
                       <a className="mr-2" href={project.website}>
                         <CgWebsite className="text-2xl inline-block" />

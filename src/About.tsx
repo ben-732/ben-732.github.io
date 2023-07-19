@@ -24,7 +24,16 @@ const sections = [
   },
   {
     title: "Mahurangi College",
-    body: <>I attended Mahurangi College from 2015 - 2021</>,
+    body: (
+      <>
+        I attended Mahurangi College from 2015 - 2021
+        <ul className="list-disc mt-2">
+          <li className="ml-6">School Prefect 2021</li>
+          <li className="ml-6">NCEA Level 3 Endorsed Excellence</li>
+          <li className="ml-6">NCEA Level 2 Endorsed Excellence</li>
+        </ul>
+      </>
+    ),
   },
 ];
 
@@ -38,10 +47,12 @@ function About() {
         <div className="flex">
           {sections.map((s, i) => (
             <div
-              className="text-black lg:ml-4 mt-2 w-96 bg-white p-4 rounded-md"
+              className="text-black lg:ml-4 mt-2 w-96 bg-gray-300 p-4 rounded-md"
               key={i}
             >
-              <span className="text-lg font-medium block">{s.title}</span>
+              <span className="text-xl font-medium block text-blue-700 mb-1">
+                {s.title}
+              </span>
               {s.body}
             </div>
           ))}

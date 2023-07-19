@@ -22,8 +22,6 @@ function NavBar() {
       // Set active section based on scroll position
       const scrollPosition = windowPosition + window.innerHeight / 4;
 
-      console.log(window.innerHeight, scrollPosition);
-
       if (scrollPosition < window.innerHeight) {
         setActiveSection("home");
       } else if (scrollPosition < window.innerHeight * 2) {

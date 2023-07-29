@@ -1,15 +1,22 @@
 import React from "react";
 import { IoSchool } from "react-icons/io5";
+import { RiToolsFill } from "react-icons/ri";
 
 const educationType = {
   name: "Education",
   icon: <IoSchool />,
 };
 
+const workType = {
+  name: "Work Experience",
+  icon: <RiToolsFill />,
+};
+
 const sections = [
   {
     title: "University of Auckland",
     type: educationType,
+    date: "2022 - 2025",
     body: (
       <>
         I'm a Part 2 Software Engineering student at the university of Auckland.
@@ -29,8 +36,46 @@ const sections = [
       </>
     ),
   },
+
+  {
+    title: "Technical Assistant / Lighting Designer",
+    type: workType,
+    date: "2023",
+
+    body: (
+      <>
+        <div className="mb-2">
+          I worked as a Technical Assistant for a production of Freaky Friday at
+          the Mahurangi College auditorium.
+        </div>
+        <ul className="list-disc mt-2">
+          <li className="ml-6">
+            Supporting front of house technicians as required.
+          </li>
+          <li className="ml-6">
+            Trouble shooting problems before and during shows and working to
+            solve them as quickly as possible.
+          </li>
+          <li className="ml-6">
+            Designed and built a lighting system for a prop that interfaced with
+            a theatre show control system.
+          </li>
+          <li className="ml-6">
+            Mentored two junior technicians to achieve a level of proficiency
+            with our lighting control system.
+          </li>
+          <li className="ml-6">
+            Design a lighting plan that utilized both fixtures owned by the
+            venue and a budget for hire lights.
+          </li>
+        </ul>
+      </>
+    ),
+  },
   {
     title: "Mahurangi College",
+    date: "2015 - 2021",
+
     type: educationType,
 
     body: (
@@ -53,7 +98,7 @@ function About() {
         <span className="text-white text-3xl lg:ml-4 mt-2 font-extralight mb-4 block">
           About Me
         </span>
-        <div className="flex">
+        <div className="flex items-start">
           {sections.map((s, i) => (
             <div
               className="text-black lg:ml-4 mt-2 w-96 bg-gray-300 p-4 rounded-md"
@@ -62,6 +107,8 @@ function About() {
               <div className="flex -mt-2 items-center text-gray-600">
                 <span className="mr-2"> {s.type?.icon}</span>
                 <span className="">{s.type?.name}</span>
+                <span className="flex-grow" />
+                <span className="text-xs">{s.date}</span>
               </div>
               <span className="text-xl font-medium block text-blue-700 mb-1">
                 {s.title}

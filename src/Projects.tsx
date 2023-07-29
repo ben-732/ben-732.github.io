@@ -79,7 +79,9 @@ const projectsList = [
         his brand, focusing on a clean, simple and modern design that was
         accessible to mobile devices, a large portion of his user base.
         <br /> <br />I then implemented the website, building on top of the
-        existing tech stack.
+        existing tech stack. I utilised ChakraUI to give the website a seamless
+        modern look with minimal effort and wrote a custom wrapper to handle
+        requesting the api endpoints.
       </>
     ),
     technologies: ["React", "ChakraUI", "TypeScript"],

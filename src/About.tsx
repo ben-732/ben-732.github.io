@@ -1,8 +1,15 @@
 import React from "react";
+import { IoSchool } from "react-icons/io5";
+
+const educationType = {
+  name: "Education",
+  icon: <IoSchool />,
+};
 
 const sections = [
   {
     title: "University of Auckland",
+    type: educationType,
     body: (
       <>
         I'm a Part 2 Software Engineering student at the university of Auckland.
@@ -24,6 +31,8 @@ const sections = [
   },
   {
     title: "Mahurangi College",
+    type: educationType,
+
     body: (
       <>
         I attended Mahurangi College from 2015 - 2021
@@ -50,6 +59,10 @@ function About() {
               className="text-black lg:ml-4 mt-2 w-96 bg-gray-300 p-4 rounded-md"
               key={i}
             >
+              <div className="flex -mt-2 items-center text-gray-600">
+                <span className="mr-2"> {s.type?.icon}</span>
+                <span className="">{s.type?.name}</span>
+              </div>
               <span className="text-xl font-medium block text-blue-700 mb-1">
                 {s.title}
               </span>

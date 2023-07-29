@@ -25,9 +25,9 @@ function NavBar() {
       if (scrollPosition < window.innerHeight) {
         setActiveSection("home");
       } else if (scrollPosition < window.innerHeight * 2) {
-        setActiveSection("projects");
+        setActiveSection("about");
       } else if (scrollPosition < window.innerHeight * 3) {
-        setActiveSection("skills");
+        setActiveSection("projects");
       }
     }
   };

@@ -41,9 +41,11 @@ function NavButton({
         activeSection === section ? "text-gray-50" : ""
       }`}
     >
-      {section === "home"
-        ? "Ben McMurtrie"
-        : section[0].toUpperCase() + section.substring(1).toLowerCase()}
+      {section === "home" && "Ben McMurtrie"}
+      {section === "about" && "About Me"}
+      {section !== "home" &&
+        section !== "about" &&
+        section[0].toUpperCase() + section.substring(1).toLowerCase()}
     </span>
   );
 }

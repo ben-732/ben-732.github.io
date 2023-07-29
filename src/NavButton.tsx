@@ -37,7 +37,7 @@ function NavButton({
     <span
       id={section}
       onClick={() => NavigateTo(section)}
-      className={`cursor-pointer hover:text-gray-50  text-gray-400 text-lg hover:underline ${
+      className={`cursor-pointer hover:text-gray-50  text-gray-400 text-lg  ${
         activeSection === section ? "text-gray-50" : ""
       }`}
     >

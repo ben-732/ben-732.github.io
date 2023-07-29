@@ -11,6 +11,7 @@ import {
   SiRaspberrypi,
   SiSocketdotio,
   SiC,
+  SiChakraui,
 } from "react-icons/si";
 import { IoLogoReact } from "react-icons/io5";
 
@@ -27,6 +28,7 @@ const techIcons: { [index: string]: JSX.Element } = {
   RP2040: <SiRaspberrypi />,
   SocketIO: <SiSocketdotio />,
   C: <SiC />,
+  ChakraUI: <SiChakraui />,
 };
 
 const projectsList = [
@@ -34,7 +36,6 @@ const projectsList = [
     name: "Personal Portfolio",
     description: "This website, built in react to showcase some of my projects",
     github: "https://github.com/ben-732/ben-732.github.io",
-    website: "#home",
     technologies: ["React", "TailwindCSS", "TypeScript"],
   },
   {
@@ -64,6 +65,26 @@ const projectsList = [
     github: "https://github.com/ben-732/Hourglass",
     technologies: ["React", "Express", "C", "RP2040", "SocketIO"],
   },
+  {
+    name: "qc.photos",
+    description: (
+      <>
+        A mutual friend of mine created an API to combine and show photos /
+        reviews for products from across several online stores.
+        <br /> <br />
+        However, the frontend for his website was very basic, buggy and
+        unoptimised. He wanted me to design, build a website that would allow
+        his users to have a better experience using his service. I worked with
+        him to come up with a design that would be a better representation of
+        his brand, focusing on a clean, simple and modern design that was
+        accessible to mobile devices, a large portion of his user base.
+        <br /> <br />I then implemented the website, building on top of the
+        existing tech stack.
+      </>
+    ),
+    technologies: ["React", "ChakraUI", "TypeScript"],
+    website: "https://qc.photos",
+  },
 ];
 
 function Projects() {
@@ -73,27 +94,34 @@ function Projects() {
         className=" h-screen mt-screen bg-[#2d0d45] flex flex-col items-center  "
         // style={{ backgroundImage: `url(${background_img})` }}
       >
-        <div className=" h-full flex-col flex pt-20 mx-2 sm:mx-0 md:w-4/5 items-center lg:items-start">
+        <div className=" h-full pb-20 flex-col flex pt-20 mx-2 sm:mx-0 md:w-4/5 items-center lg:items-start ">
           <span className="text-white text-3xl lg:ml-4 mt-2 font-extralight mb-4 block">
             My Projects
           </span>
-          <div className="flex flex-col flex-wrap justify-center items-start w-full">
+          <div className="flex flex-row flex-wrap justify-center items-start w-full h-full overflow-y-scroll">
             {projectsList.map((project) => {
               return (
                 <div className="flex flex-col text-white w-full  m-2 p-5  sm:p-6 rounded-2xl  flex-wrap   bg-deep-blue bg-opacity-20 z-100">
-                  <div className="flex flex-row items-center">
-                    <span className="text-white text-xl  block mr-4">
+                  <div className="flex flex-row items-center ">
+                    <span className="text-white text-2xl block mr-4 ">
                       {project.name}
                     </span>
                     {project.website && project.website.length > 0 && (
-                      <a className="mr-2" href={project.website}>
+                      <a
+                        className="mr-2"
+                        href={project.website}
+                        rel="noreferrer"
+                        target={"_blank"}
+                      >
                         <CgWebsite className="text-2xl inline-block" />
                       </a>
                     )}
 
-                    <a href={project.github}>
-                      <AiFillGithub className="text-2xl inline-block" />
-                    </a>
+                    {project.github && project.github.length > 0 && (
+                      <a href={project.github}>
+                        <AiFillGithub className="text-2xl inline-block" />
+                      </a>
+                    )}
                   </div>
                   <div className="mt-1 text-md">{project.description}</div>
                   <div className="mt-2 flex flex-row flex-wrap w-full gap-2">

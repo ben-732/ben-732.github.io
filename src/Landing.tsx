@@ -41,7 +41,7 @@ function Landing() {
                 <AiFillLinkedin className="text-2xl inline-block ml-2" />
               </a>
             </div>
-            <div className="mt-2 flex flex-col justify-center lg:justify-start">
+            <div className="mt-2 flex flex-col items-center lg:items-start ">
               <span
                 className=" transition-all  hover:text-purple-300 cursor-pointer  text-left mt-4 rounded-lg flex flex-row items-center"
                 onClick={() => scroll(1)}

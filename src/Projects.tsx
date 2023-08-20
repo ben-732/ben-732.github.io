@@ -39,11 +39,31 @@ const projectsList = [
     technologies: ["React", "TailwindCSS", "TypeScript"],
   },
   {
-    name: "Recipe Book",
-    description:
-      "Recipe Book built with NextJS and MongoDB. \n \n Focus on accessibility and mobile first design, with an intuitive UI to make entering recipes simple and easy.",
-    github: "https://github.com/ben-732/recipes",
-    technologies: ["NextJS", "MongoDB", "TailwindCSS", "TypeScript"],
+    name: "qc.photos",
+    description: (
+      <>
+        A mutual friend of mine has an API which he created to collate and
+        display reviews for products from across several online shopfronts. He
+        has a relatively large user base and has a website to allow users to
+        interact with his API.
+        <br /> <br />
+        However, the frontend for his website was very basic, buggy and
+        unoptimised. He approached me to design and build a website that would
+        allow his users to have a better experience with his service. We worked
+        together to come up with a design that would be a better representation
+        of his brand, focusing on creating a clean, simple and modern UI that
+        would also accessible to mobile devices, a large portion of his user
+        base.
+        <br /> <br />I then created the website, building on top of the existing
+        tech stack. I utilised the ChakraUI component library to give the
+        website a seamless modern look with and wrote a custom wrapper to handle
+        requesting his api endpoints. I also focused on improving the user
+        experience, listening to feedback from his community and implementing
+        changes to improve the website wherever I could.
+      </>
+    ),
+    technologies: ["React", "ChakraUI", "TypeScript"],
+    website: "https://qc.photos",
   },
   // {
   //   name: "Fuel Tracker",
@@ -65,27 +85,13 @@ const projectsList = [
     github: "https://github.com/ben-732/Hourglass",
     technologies: ["React", "Express", "C", "RP2040", "SocketIO"],
   },
+
   {
-    name: "qc.photos",
-    description: (
-      <>
-        A mutual friend of mine created an API to combine and show photos /
-        reviews for products from across several online stores.
-        <br /> <br />
-        However, the frontend for his website was very basic, buggy and
-        unoptimised. He wanted me to design, build a website that would allow
-        his users to have a better experience using his service. I worked with
-        him to come up with a design that would be a better representation of
-        his brand, focusing on a clean, simple and modern design that was
-        accessible to mobile devices, a large portion of his user base.
-        <br /> <br />I then implemented the website, building on top of the
-        existing tech stack. I utilised ChakraUI to give the website a seamless
-        modern look with minimal effort and wrote a custom wrapper to handle
-        requesting the api endpoints.
-      </>
-    ),
-    technologies: ["React", "ChakraUI", "TypeScript"],
-    website: "https://qc.photos",
+    name: "Recipe Book",
+    description:
+      "Recipe Book built with NextJS and MongoDB. \n \n Focus on accessibility and mobile first design, with an intuitive UI to make entering recipes simple and easy.",
+    github: "https://github.com/ben-732/recipes",
+    technologies: ["NextJS", "MongoDB", "TailwindCSS", "TypeScript"],
   },
 ];
 

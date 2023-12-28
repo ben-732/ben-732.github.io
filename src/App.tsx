@@ -1,6 +1,8 @@
 import React from "react";
 
 import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
+import { FaEnvelope } from "react-icons/fa";
+
 import Card from "./components/Card";
 
 function App() {
@@ -13,34 +15,42 @@ function App() {
             Ben <br></br>McMurtrie
           </h1>
           <div className="flex flex-col m-2 text-gray-200">
-            <GlowText section="projects">Developer</GlowText>
+            <GlowText section="projects">Software Engineer</GlowText>
             <GlowText section="education">
-              Student at the University of Auckland
+              Studying at the University of Auckland
             </GlowText>
             <GlowText section="experience">
-              Software Engineering Intern at Tidy International
+              Interning for Tidy International
             </GlowText>
           </div>
         </div>
 
         <div className="links-section">
-          <div className="flex flex-row justify-around max-w-md mt-16">
+          <div className="flex flex-row justify-around max-w-md mt-24">
             <Card
               hover
               rotate={-10}
-              href="https://www.linkedin.com/in/benmcmurtrie/"
+              href="https://www.linkedin.com/in/ben732/"
               target="_blank"
-              className="mt-4"
+              className="w-24 h-24 flex items-center justify-center mt-6"
             >
-              <AiFillLinkedin size="48" />
+              <AiFillLinkedin size="64" />
             </Card>
             <Card
               hover
               rotate={4}
+              className="w-24 h-24 flex items-center justify-center mt-40 -ml-20"
+            >
+              <FaEnvelope size="52" />
+            </Card>
+            <Card
+              hover
+              rotate={20}
               href="https://github.com/ben-732"
               target="_blank"
+              className="w-24 h-24 flex items-center justify-center -ml-10"
             >
-              <AiFillGithub size="48" />
+              <AiFillGithub size="64" />
             </Card>
           </div>
         </div>

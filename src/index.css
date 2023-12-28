@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.pageBackground {
+  background: radial-gradient(379.56% 194.85% at 91.29% 85.46%, #c11cfd 0%, #1b5bff 100%);
+}

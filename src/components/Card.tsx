@@ -1,6 +1,6 @@
 import React from "react";
 
-interface iProps {
+interface iProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   rotate?: number;
   hover?: boolean;
@@ -23,11 +23,12 @@ function Card({ children, href, target, ...props }: iProps) {
   );
 }
 
-function InnerCard({ children, hover, rotate }: iProps) {
+function InnerCard({ children, hover, rotate, className, ...props }: iProps) {
   return (
-    <div style={{ rotate: `${rotate}deg` }} className="inline-block">
+    <div style={{ rotate: `${rotate}deg` }}>
       <div
-        className={`shadow-lg bg-white p-3 inline-block rounded-2xl transform ${
+        {...props}
+        className={`${className} shadow-lg bg-white p-3 rounded-2xl transform ${
           hover ? hoverClasses : ""
         }`}
       >

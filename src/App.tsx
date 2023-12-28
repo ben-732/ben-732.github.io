@@ -11,10 +11,14 @@ function App() {
         <h1 className="text-7xl font-extrabold text-white pt-0">
           Ben <br></br>McMurtrie
         </h1>
-        <div className="flex flex-col m-2 text-gray-200 leading-tight	">
-          <span>Web Developer</span>
-          <span>Student at the University of Auckland</span>
-          <span>Software Engineering Intern at Tidy International</span>
+        <div className="flex flex-col m-2 text-gray-200">
+          <GlowText section="projects">Developer</GlowText>
+          <GlowText section="projects">
+            Student at the University of Auckland
+          </GlowText>
+          <GlowText section="projects">
+            Software Engineering Intern at Tidy International
+          </GlowText>
         </div>
       </div>
 
@@ -22,6 +26,22 @@ function App() {
         <AiFillGithub size="48" />
       </Card>
     </div>
+  );
+}
+
+function GlowText({
+  children,
+  section,
+}: {
+  children: React.ReactNode;
+  section: string;
+}) {
+  return (
+    <a href={`#${section}`}>
+      <span className="hover:text-white text-slate-300 cursor-pointer">
+        {children}
+      </span>
+    </a>
   );
 }
 

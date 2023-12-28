@@ -8,7 +8,7 @@ import Card from "./components/Card";
 function App() {
   return (
     <div className="w-full h-screen overflow-x-hidden scroll-smooth pageBackground flex p-20 flex-wrap">
-      <div className="lg: w-1/2 min-w-max mr-24">
+      <div className="lg:w-1/2 min-w-max mr-24">
         <div className="">
           <span className="text-lg text-white ">Hello, I am</span>
           <h1 className="text-7xl font-extrabold text-white pt-0">
@@ -55,15 +55,20 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="flex-grow-[2]" />
-      <div className=" mt-40">
-        <Card className="w-full block w-[400px]" rotate={2}>
-          <div className="flex flex-col items-center w-full">
-            <span className="font-medium text-xl">🚧 Work in progress 🚧</span>
-          </div>
-        </Card>
+      <div className="flex flex-grow">
+        <div className="flex-grow-[2]" />
+        <div className=" mt-40">
+          <Card className="w-full block w-[400px] p-8" rotate={2}>
+            <div className="flex flex-col items-center w-full gap-2">
+              <span className="font-medium text-xl">
+                🚧 Website in progress 🚧
+              </span>
+              <span>Check back later for more...</span>
+            </div>
+          </Card>
+        </div>
+        <div className="flex-grow-[1]" />
       </div>
-      <div className="flex-grow-[1]" />
     </div>
   );
 }

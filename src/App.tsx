@@ -18,15 +18,9 @@ function App() {
         </div>
       </div>
 
-    <div
-      className="w-full bg-cover overflow-x-hidden scroll-smooth"
-      // style={{ backgroundImage: `url(${background_img})` }}
-    >
-      <NavBar />
-      <Landing />
-      <About />
-      <Projects />
-      {/* <Skills /> */}
+      <Card hover rotate={10} href="https://github.com/ben-732" target="_blank">
+        <AiFillGithub size="48" />
+      </Card>
     </div>
   );
 }

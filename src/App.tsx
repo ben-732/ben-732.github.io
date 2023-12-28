@@ -47,10 +47,9 @@ function App() {
       </div>
       <div className="flex-grow-[2]" />
       <div className=" mt-40">
-        <Card className="w-full block w-96" rotate={2}>
-          <div className="flex flex-col items-center ">
-            <span className="font-bold text-xl">🚧 Work in progress 🚧</span>
-            <span className="text-xl">More content coming soon !!</span>
+        <Card className="w-full block w-[400px]" rotate={2}>
+          <div className="flex flex-col items-center w-full">
+            <span className="font-medium text-xl">🚧 Work in progress 🚧</span>
           </div>
         </Card>
       </div>
@@ -66,13 +65,7 @@ function GlowText({
   children: React.ReactNode;
   section: string;
 }) {
-  return (
-    <a href={`#${section}`}>
-      <span className="hover:text-white text-slate-300 cursor-pointer text-lg leading-tight">
-        {children}
-      </span>
-    </a>
-  );
+  return <span className=" text-white text-xl leading-tight">{children}</span>;
 }
 
 export default App;

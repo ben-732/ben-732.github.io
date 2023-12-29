@@ -5,14 +5,7 @@ import { iProps as iCardProps } from "./Card";
 import { FaSpotify } from "react-icons/fa";
 
 import noSong from "../img/no-song.png";
-
-interface iSpotifySong {
-  artist: string;
-  song: string;
-  album: string;
-  albumArt: string;
-  link: string;
-}
+import { iSpotifySong, getSong } from "../util/getSpotifySong";
 
 interface iProps
   extends Omit<iCardProps, "children" | "href" | "target" | "hover"> {}
@@ -24,51 +17,26 @@ function SpotifySong(props: iProps) {
   >("loading");
 
   useEffect(() => {
-    // if (process.env.NODE_ENV === "development") {
-    //   setTimeout(() => {
-    //     setSongStatus("idle");
-    //     setSong({
-    //       artist: "Lorde",
-    //       song: "Liability (Test Data)",
-    //       album: "sumn",
-    //       albumArt:
-    //         "https://i.scdn.co/image/ab67616d00001e02f8553e18a11209d4becd0336",
-    //       link: "https://open.spotify.com/track/6Kkt27YmFyIFrcX3QXFi2o?si=cb5a313e167b4b52&nd=1&dlsi=c9fc02b813cd427e",
-    //     });
-    //   }, 2000);
-
-    //   return;
-    // }
     updateSong();
 
-    const interval = setInterval(updateSong, 60000);
+    const interval = setInterval(updateSong, 60e3);
 
     return () => clearInterval(interval);
   }, []);
 
-  function updateSong() {
-    console.log("Updating song...");
+  async function updateSong() {
+    console.log("Updating song - " + new Date().toLocaleTimeString());
 
-    fetch(
-      "https://5nregwxmf2.execute-api.ap-southeast-2.amazonaws.com/default/get-current-song-spotify"
-    )
-      .then((res) => {
-        if (!res.ok) throw new Error("Failed to fetch song");
+    const [err, song] = await getSong();
 
-        if (res.status === 204) {
-          setSongStatus("error");
-          console.log("no song playing");
-        }
+    if (err) {
+      setSongStatus("error");
+      setSong(null);
+      return;
+    }
 
-        return res.json();
-      })
-      .then((data) => {
-        setSong(data);
-        setSongStatus("idle");
-      })
-      .catch((e) => {
-        setSongStatus("error");
-      });
+    setSong(song);
+    setSongStatus("idle");
   }
 
   if (songStatus === "loading")

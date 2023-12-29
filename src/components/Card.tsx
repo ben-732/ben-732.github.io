@@ -1,6 +1,6 @@
 import React from "react";
 
-interface iProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface iProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   rotate?: number;
   hover?: boolean;

@@ -4,6 +4,7 @@ import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 import { FaEnvelope } from "react-icons/fa";
 
 import Card from "./components/Card";
+import SpotifySong from "./components/SpotifySong";
 
 function App() {
   return (
@@ -58,7 +59,7 @@ function App() {
       <div className="flex flex-grow">
         <div className="flex-grow-[2]" />
         <div className=" mt-40">
-          <Card className="w-full block w-[400px] p-8" rotate={2}>
+          <Card className="w-full block w-[400px] p-8" rotate={-1}>
             <div className="flex flex-col items-center w-full gap-2">
               <span className="font-medium text-xl">
                 🚧 Website in progress 🚧
@@ -66,6 +67,8 @@ function App() {
               <span>Check back later for more...</span>
             </div>
           </Card>
+
+          <SpotifySong className="mt-16" rotate={3}></SpotifySong>
         </div>
         <div className="flex-grow-[1]" />
       </div>

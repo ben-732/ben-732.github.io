@@ -41,6 +41,7 @@ function App() {
               hover
               rotate={4}
               className="w-24 h-24 flex items-center justify-center mt-40 -ml-20"
+              href="mailto:mcmurtrie.ben+portfolio@gmail.com"
             >
               <FaEnvelope size="52" />
             </Card>

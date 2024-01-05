@@ -60,16 +60,7 @@ function App() {
       <div className="flex flex-grow">
         <div className="flex-grow-[2]" />
         <div className=" mt-10">
-          <Card className=" block w-[400px] h-[400px] p-8" rotate={-5}>
-            <div className="flex flex-col items-center w-full gap-2">
-              <span className="font-medium text-xl">
-                🚧 Website in progress 🚧
-              </span>
-              <span>Check back later for more...</span>
-            </div>
-          </Card>
-
-          <SpotifySong className="mt-48" rotate={9}></SpotifySong>
+          <SpotifySong rotate={9}></SpotifySong>
         </div>
         <div className="flex-grow-[1]" />
       </div>

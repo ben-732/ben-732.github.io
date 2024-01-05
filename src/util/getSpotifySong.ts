@@ -42,7 +42,7 @@ export async function getSong(): Promise<tSongResponse> {
       "https://5nregwxmf2.execute-api.ap-southeast-2.amazonaws.com/default/get-current-song-spotify"
     );
 
-    if (res.status === 204) {
+    if (res.status !== 200) {
       return [true];
     }
 

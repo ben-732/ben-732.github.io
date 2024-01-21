@@ -107,8 +107,6 @@ export default async function getGithubActivity(
   );
 
   if (data.length > 0) {
-    console.log(combineAccountData(data));
-
     return combineAccountData(data);
   } else {
     throw new Error("Could not get github activity");

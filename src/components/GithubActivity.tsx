@@ -65,6 +65,7 @@ function SuccessContent({ activity }: { activity: iGithubActivity }) {
       >
         {activity?.contributions.map((day, index) => (
           <ActivitySquare
+            key={index}
             dayIndex={index}
             color={getColor(day.level)}
             titleText={`${day.count} ${
@@ -97,7 +98,11 @@ function ErrorContent() {
         width={TOTAL_SIZE * WEEKS - MARGIN + BORDER * 2}
       >
         {errorActivity.map((_, index) => (
-          <ActivitySquare dayIndex={index} color={randomErrorColor()} />
+          <ActivitySquare
+            key={index}
+            dayIndex={index}
+            color={randomErrorColor()}
+          />
         ))}
       </svg>
     </>
@@ -116,7 +121,12 @@ function LoadingContent() {
         width={TOTAL_SIZE * WEEKS - MARGIN + BORDER * 2}
       >
         {Array.from({ length: WEEKS * 7 }).map((_, index) => (
-          <ActivitySquare dayIndex={index} color={getColor(0)} pulse />
+          <ActivitySquare
+            key={index}
+            dayIndex={index}
+            color={getColor(0)}
+            pulse
+          />
         ))}
       </svg>
     </>

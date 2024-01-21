@@ -69,12 +69,14 @@ function combineAccountData(data: iApiResponse[]): iGithubActivity {
       (acc, curr) => acc + curr.contributions[i].contributionCount,
       0
     );
-    const level =
-      data.reduce(
-        (acc, curr) =>
-          acc + ContributionLevels[curr.contributions[i].contributionLevel],
-        0
-      ) / data.length;
+    const level = data.reduce(
+      (acc, curr) =>
+        Math.max(
+          acc,
+          ContributionLevels[curr.contributions[i].contributionLevel]
+        ),
+      0
+    );
     const date = data[0].contributions[i].date;
 
     return {

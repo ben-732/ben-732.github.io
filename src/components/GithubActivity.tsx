@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
 import Card, { iProps as iCardProps } from "./Card";
-import { FaGithub } from "react-icons/fa";
+import { FaExclamationTriangle, FaGithub, FaSpinner } from "react-icons/fa";
 import getGithubActivity, { iGithubActivity } from "../util/getGithubActivity";
 
 interface iProps
@@ -37,6 +37,18 @@ function GithubActivity(props: iProps) {
 
   return (
     <Card {...props}>
+      {status === "loading" && <LoadingContent />}
+
+      {status === "error" && <ErrorContent />}
+
+      {status === "idle" && <SuccessContent activity={activity!} />}
+    </Card>
+  );
+}
+
+function SuccessContent({ activity }: { activity: iGithubActivity }) {
+  return (
+    <>
       <div className="text-sm font-medium flex items-center gap-2 border-b-1 pb-1 mb-1">
         <FaGithub size={18} />
         Recent activity across accounts
@@ -46,19 +58,67 @@ function GithubActivity(props: iProps) {
         width={TOTAL_SIZE * weeks - MARGIN + BORDER * 2}
       >
         {activity?.contributions.map((day, index) => (
-          <ActivitySquare dayIndex={index} level={day.level} />
+          <ActivitySquare dayIndex={index} color={getColor(day.level)} />
         ))}
       </svg>
-    </Card>
+    </>
+  );
+}
+
+function ErrorContent() {
+  const errorActivity = Array.from({ length: weeks * 7 });
+
+  const colors = ["#ff8080", "#fc6565", "#fa5555", "#f5bcbc", "#fff0f0"];
+
+  function randomErrorColor() {
+    return colors[Math.floor(Math.random() * colors.length)];
+  }
+
+  return (
+    <>
+      <div className="text-sm font-medium flex items-center gap-2 border-b-1 pb-1 mb-1">
+        <FaExclamationTriangle size={18} />
+        Could not load github activity
+      </div>
+      <svg
+        height={TOTAL_SIZE * 7 - MARGIN + BORDER * 2}
+        width={TOTAL_SIZE * weeks - MARGIN + BORDER * 2}
+      >
+        {errorActivity.map((_, index) => (
+          <ActivitySquare dayIndex={index} color={randomErrorColor()} />
+        ))}
+      </svg>
+    </>
+  );
+}
+
+function LoadingContent() {
+  return (
+    <>
+      <div className="text-sm font-medium flex items-center gap-2 border-b-1 pb-1 mb-1">
+        <FaSpinner size={18} className="animate-spin" />
+        Loading recent activity...
+      </div>
+      <svg
+        height={TOTAL_SIZE * 7 - MARGIN + BORDER * 2}
+        width={TOTAL_SIZE * weeks - MARGIN + BORDER * 2}
+      >
+        {Array.from({ length: weeks * 7 }).map((_, index) => (
+          <ActivitySquare dayIndex={index} color={getColor(0)} pulse />
+        ))}
+      </svg>
+    </>
   );
 }
 
 function ActivitySquare({
   dayIndex,
-  level,
+  color,
+  pulse = false,
 }: {
   dayIndex: number;
-  level: number;
+  color: string;
+  pulse?: boolean;
 }) {
   const xPos = BORDER + ~~(dayIndex / 7) * TOTAL_SIZE;
   const yPos = BORDER + (dayIndex % 7) * TOTAL_SIZE;
@@ -69,7 +129,7 @@ function ActivitySquare({
       height={SIZE}
       x={xPos}
       y={yPos}
-      fill={getColor(level)}
+      fill={color}
       rx={4}
       ry={4}
       // scale={Math.random() * 0.5 + 0.5}
@@ -77,7 +137,9 @@ function ActivitySquare({
         transformOrigin: `${xPos + SIZE / 2}px ${yPos + SIZE / 2}px`,
         // transition: "all 0.4s ease-in-out",
       }}
-      className="hover:scale-125 transition duration-300 ease-in-out cursor-pointer"
+      className={`hover:scale-125 transition duration-300 ease-in-out cursor-pointer ${
+        pulse && "animate-pulse"
+      }`}
     ></rect>
   );
 }

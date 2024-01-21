@@ -10,7 +10,7 @@ import GithubActivity from "./components/GithubActivity";
 function App() {
   return (
     <div className="w-full h-screen overflow-x-hidden scroll-smooth pageBackground flex p-20 flex-wrap">
-      <div className="lg:w-1/2 min-w-max mr-24">
+      <div className="lg:w-1/3 min-w-max mr-24">
         <div className="">
           <span className="text-lg text-white ">Hello, I am</span>
           <h1 className="text-7xl font-extrabold text-white pt-0">
@@ -28,7 +28,7 @@ function App() {
         </div>
 
         <div className="links-section">
-          <div className="flex flex-row justify-around max-w-md mt-24">
+          <div className="flex flex-row justify-around max-w-sm mt-24">
             <Card
               hover
               rotate={-10}
@@ -58,8 +58,8 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="flex flex-grow">
-        <div className=" mt-10">
+      <div className="flex flex-col items-center flex-grow">
+        <div className="mt-10 hidden xl:block">
           <GithubActivity rotate={-11}></GithubActivity>
         </div>
         <div className="flex-grow-[2]" />

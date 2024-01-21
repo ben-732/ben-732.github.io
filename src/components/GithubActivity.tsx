@@ -7,10 +7,11 @@ import getGithubActivity, { iGithubActivity } from "../util/getGithubActivity";
 interface iProps
   extends Omit<iCardProps, "children" | "href" | "target" | "hover"> {}
 
-const SIZE = 18;
-const MARGIN = 4;
+const SIZE = 14;
+const MARGIN = 2.5;
 const TOTAL_SIZE = SIZE + MARGIN;
 const BORDER = MARGIN;
+const BORDER_RADIUS = 3;
 
 const weeks = 30;
 
@@ -130,14 +131,14 @@ function ActivitySquare({
       x={xPos}
       y={yPos}
       fill={color}
-      rx={4}
-      ry={4}
+      rx={BORDER_RADIUS}
+      ry={BORDER_RADIUS}
       // scale={Math.random() * 0.5 + 0.5}
       style={{
         transformOrigin: `${xPos + SIZE / 2}px ${yPos + SIZE / 2}px`,
         // transition: "all 0.4s ease-in-out",
       }}
-      className={`hover:scale-125 transition duration-300 ease-in-out cursor-pointer ${
+      className={`hover:scale-[1.15] transition duration-300 ease-in-out cursor-pointer ${
         pulse && "animate-pulse"
       }`}
     ></rect>

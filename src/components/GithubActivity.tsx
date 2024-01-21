@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import Card, { iProps as iCardProps } from "./Card";
 import { FaGithub } from "react-icons/fa";
-import getGithubActivity from "../util/getGithubActivity";
+import getGithubActivity, { iGithubActivity } from "../util/getGithubActivity";
 
 interface iProps
   extends Omit<iCardProps, "children" | "href" | "target" | "hover"> {}
@@ -12,10 +12,26 @@ const MARGIN = 4;
 const TOTAL_SIZE = SIZE + MARGIN;
 const BORDER = MARGIN;
 
-const weeks = 14;
+const weeks = 30;
 
 function GithubActivity(props: iProps) {
   getGithubActivity(weeks * 7);
+
+  const [activity, setActivity] = React.useState<iGithubActivity | undefined>();
+  const [status, setStatus] = React.useState<"loading" | "idle" | "error">(
+    "loading"
+  );
+
+  useEffect(() => {
+    getGithubActivity(weeks * 7)
+      .then((activity) => {
+        setActivity(activity);
+        setStatus("idle");
+      })
+      .catch(() => {
+        setStatus("error");
+      });
+  }, []);
 
   const days = Array.from({ length: weeks * 7 }, (_, i) => i);
 
@@ -29,11 +45,8 @@ function GithubActivity(props: iProps) {
         height={TOTAL_SIZE * 7 - MARGIN + BORDER * 2}
         width={TOTAL_SIZE * weeks - MARGIN + BORDER * 2}
       >
-        {days.map((day) => (
-          <ActivitySquare
-            dayIndex={day}
-            level={Math.floor(Math.random() * 5)}
-          />
+        {activity?.contributions.map((day, index) => (
+          <ActivitySquare dayIndex={index} level={day.level} />
         ))}
       </svg>
     </Card>

@@ -2,6 +2,7 @@ import React from "react";
 
 import Card, { iProps as iCardProps } from "./Card";
 import { FaGithub } from "react-icons/fa";
+import getGithubActivity from "../util/getGithubActivity";
 
 interface iProps
   extends Omit<iCardProps, "children" | "href" | "target" | "hover"> {}
@@ -14,6 +15,8 @@ const BORDER = MARGIN;
 const weeks = 14;
 
 function GithubActivity(props: iProps) {
+  getGithubActivity(weeks * 7);
+
   const days = Array.from({ length: weeks * 7 }, (_, i) => i);
 
   return (

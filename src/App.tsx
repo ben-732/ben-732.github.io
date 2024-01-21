@@ -5,6 +5,7 @@ import { FaEnvelope } from "react-icons/fa";
 
 import Card from "./components/Card";
 import SpotifySong from "./components/SpotifySong";
+import GithubActivity from "./components/GithubActivity";
 
 function App() {
   return (
@@ -58,6 +59,9 @@ function App() {
         </div>
       </div>
       <div className="flex flex-grow">
+        <div className=" mt-10">
+          <GithubActivity rotate={-11}></GithubActivity>
+        </div>
         <div className="flex-grow-[2]" />
         <div className=" mt-10">
           <SpotifySong rotate={9}></SpotifySong>
@@ -68,13 +72,12 @@ function App() {
   );
 }
 
-function GlowText({
-  children,
-  section,
-}: {
+interface iGlowTextProps {
   children: React.ReactNode;
   section: string;
-}) {
+}
+
+function GlowText({ children }: iGlowTextProps) {
   return <span className=" text-white text-xl leading-tight">{children}</span>;
 }
 

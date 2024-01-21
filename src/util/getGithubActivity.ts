@@ -17,7 +17,7 @@ interface iApiResponse {
   }[];
 }
 
-interface iGithubActivity {
+export interface iGithubActivity {
   totalContributions: number;
   contributions: {
     count: number;
@@ -25,15 +25,22 @@ interface iGithubActivity {
     date: string;
   }[];
 }
-
+/**
+ * Get github activity for a given account between now and a given date
+ *
+ * @param username Username of the github account to get activity for
+ * @param dateFrom Date object for the start date of the activity request
+ * @returns Api response containing the activity data
+ */
 async function getAccountContributions(
   username: string,
   dateFrom: Date
 ): Promise<iApiResponse> {
-  const dateString = dateFrom.toISOString().split("T")[0];
+  const startDate = getDateString(dateFrom);
+  const endDate = getDateString(new Date());
 
   const res = await fetch(
-    `https://github-contributions-api.deno.dev/${username}.json?flat=true&from=${dateString}`
+    `https://github-contributions-api.deno.dev/${username}.json?flat=true&from=${startDate}&to=${endDate}`
   );
 
   if (res.status !== 200 || !res.ok) {
@@ -45,6 +52,12 @@ async function getAccountContributions(
   return data;
 }
 
+/**
+ * Combine and simplify an array of api responses into one object
+ *
+ * @param data Array of original api responses
+ * @returns combined and simplified github activity object
+ */
 function combineAccountData(data: iApiResponse[]): iGithubActivity {
   const totalContributions = data.reduce(
     (acc, curr) => acc + curr.totalContributions,
@@ -77,6 +90,13 @@ function combineAccountData(data: iApiResponse[]): iGithubActivity {
   };
 }
 
+/**
+ * Method to get github activity for a given number of days across all accounts,
+ * and then process the data into a simplified format
+ *
+ * @param days number of days to get activity for
+ * @returns combined and simplified github activity object
+ */
 export default async function getGithubActivity(
   days: number
 ): Promise<iGithubActivity> {
@@ -99,4 +119,13 @@ export default async function getGithubActivity(
   } else {
     throw new Error("Could not get github activity");
   }
+}
+
+/**
+ * Function to return date string in format yyyy-mm-dd
+ *
+ * @param date date input
+ */
+function getDateString(date: Date) {
+  return date.toLocaleDateString("en-GB").split("/").reverse().join("-");
 }

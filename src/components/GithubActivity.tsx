@@ -54,6 +54,10 @@ function SuccessContent({ activity }: { activity: iGithubActivity }) {
       <div className="text-sm font-medium flex items-center gap-2 border-b-1 pb-1 mb-1">
         <FaGithub size={18} />
         Recent activity across accounts
+        <div className="flex-grow" />
+        <span className="text-xs text-gray-400">
+          {activity?.totalContributions} contributions in the last {WEEKS} weeks
+        </span>
       </div>
       <svg
         height={TOTAL_SIZE * 7 - MARGIN + BORDER * 2}
@@ -149,7 +153,7 @@ function ActivitySquare({
         transformOrigin: `${xPos + SIZE / 2}px ${yPos + SIZE / 2}px`,
         // transition: "all 0.4s ease-in-out",
       }}
-      className={`hover:scale-[1.15] transition duration-300 ease-in-out cursor-pointer ${
+      className={`hover:scale-[1.15] transition duration-150 ease-in-out ${
         pulse && "animate-pulse"
       }`}
     >

@@ -95,7 +95,7 @@ const SongCard = ({ song, className, ...props }: iSongCardProps) => {
         <div className="w-min mr-2 leading-none">
           <div className="text-sm font-medium flex items-center gap-2">
             <FaSpotify size={18} />
-            My activity
+            My Spotify activity
           </div>
           <span className="w-[220px] text-xl block whitespace-nowrap overflow-hidden text-ellipsis">
             {song.song}

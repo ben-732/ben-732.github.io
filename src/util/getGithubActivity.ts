@@ -96,22 +96,14 @@ function combineAccountData(data: iApiResponse[]): iGithubActivity {
  * Method to get github activity for a given number of days across all accounts,
  * and then process the data into a simplified format
  *
- * @param days number of days to get activity for
+ * @param date the date to get the history from
  * @returns combined and simplified github activity object
  */
 export default async function getGithubActivity(
-  days: number
+  date: Date
 ): Promise<iGithubActivity> {
-  const dateFrom = new Date();
-
-  dateFrom.setDate(new Date().getDate() - days);
-
-  console.log(dateFrom);
-
   const data = await Promise.all(
-    accounts.map((account) =>
-      getAccountContributions(account, new Date(dateFrom))
-    )
+    accounts.map((account) => getAccountContributions(account, date))
   );
 
   if (data.length > 0) {

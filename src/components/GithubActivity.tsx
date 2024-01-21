@@ -13,18 +13,21 @@ const TOTAL_SIZE = SIZE + MARGIN;
 const BORDER = MARGIN;
 const BORDER_RADIUS = 3;
 
-const weeks = 30;
+const WEEKS = 30;
 
 function GithubActivity(props: iProps) {
-  getGithubActivity(weeks * 7);
-
   const [activity, setActivity] = React.useState<iGithubActivity | undefined>();
   const [status, setStatus] = React.useState<"loading" | "idle" | "error">(
     "loading"
   );
 
   useEffect(() => {
-    getGithubActivity(weeks * 7)
+    // Calculate the sunday of the week WEEKS weeks ago
+    const date = new Date();
+    date.setDate(date.getDate() - (WEEKS - 1) * 7);
+    date.setDate(date.getDate() - date.getDay());
+
+    getGithubActivity(date)
       .then((activity) => {
         setActivity(activity);
         setStatus("idle");
@@ -33,8 +36,6 @@ function GithubActivity(props: iProps) {
         setStatus("error");
       });
   }, []);
-
-  const days = Array.from({ length: weeks * 7 }, (_, i) => i);
 
   return (
     <Card {...props}>
@@ -56,7 +57,7 @@ function SuccessContent({ activity }: { activity: iGithubActivity }) {
       </div>
       <svg
         height={TOTAL_SIZE * 7 - MARGIN + BORDER * 2}
-        width={TOTAL_SIZE * weeks - MARGIN + BORDER * 2}
+        width={TOTAL_SIZE * WEEKS - MARGIN + BORDER * 2}
       >
         {activity?.contributions.map((day, index) => (
           <ActivitySquare dayIndex={index} color={getColor(day.level)} />
@@ -67,7 +68,7 @@ function SuccessContent({ activity }: { activity: iGithubActivity }) {
 }
 
 function ErrorContent() {
-  const errorActivity = Array.from({ length: weeks * 7 });
+  const errorActivity = Array.from({ length: WEEKS * 7 });
 
   const colors = ["#ff8080", "#fc6565", "#fa5555", "#f5bcbc", "#fff0f0"];
 
@@ -83,7 +84,7 @@ function ErrorContent() {
       </div>
       <svg
         height={TOTAL_SIZE * 7 - MARGIN + BORDER * 2}
-        width={TOTAL_SIZE * weeks - MARGIN + BORDER * 2}
+        width={TOTAL_SIZE * WEEKS - MARGIN + BORDER * 2}
       >
         {errorActivity.map((_, index) => (
           <ActivitySquare dayIndex={index} color={randomErrorColor()} />
@@ -102,9 +103,9 @@ function LoadingContent() {
       </div>
       <svg
         height={TOTAL_SIZE * 7 - MARGIN + BORDER * 2}
-        width={TOTAL_SIZE * weeks - MARGIN + BORDER * 2}
+        width={TOTAL_SIZE * WEEKS - MARGIN + BORDER * 2}
       >
-        {Array.from({ length: weeks * 7 }).map((_, index) => (
+        {Array.from({ length: WEEKS * 7 }).map((_, index) => (
           <ActivitySquare dayIndex={index} color={getColor(0)} pulse />
         ))}
       </svg>

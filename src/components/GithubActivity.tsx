@@ -60,7 +60,13 @@ function SuccessContent({ activity }: { activity: iGithubActivity }) {
         width={TOTAL_SIZE * WEEKS - MARGIN + BORDER * 2}
       >
         {activity?.contributions.map((day, index) => (
-          <ActivitySquare dayIndex={index} color={getColor(day.level)} />
+          <ActivitySquare
+            dayIndex={index}
+            color={getColor(day.level)}
+            titleText={`${day.count} ${
+              day.count === 1 ? "Contribution" : "Contributions"
+            } on ${new Date(day.date).toLocaleDateString("en-NZ")}`}
+          />
         ))}
       </svg>
     </>
@@ -113,15 +119,19 @@ function LoadingContent() {
   );
 }
 
+interface iActivitySquareProps {
+  dayIndex: number;
+  color: string;
+  pulse?: boolean;
+  titleText?: string;
+}
+
 function ActivitySquare({
   dayIndex,
   color,
   pulse = false,
-}: {
-  dayIndex: number;
-  color: string;
-  pulse?: boolean;
-}) {
+  titleText = "",
+}: iActivitySquareProps) {
   const xPos = BORDER + ~~(dayIndex / 7) * TOTAL_SIZE;
   const yPos = BORDER + (dayIndex % 7) * TOTAL_SIZE;
 
@@ -142,7 +152,9 @@ function ActivitySquare({
       className={`hover:scale-[1.15] transition duration-300 ease-in-out cursor-pointer ${
         pulse && "animate-pulse"
       }`}
-    ></rect>
+    >
+      <title>{titleText}</title>
+    </rect>
   );
 }
 

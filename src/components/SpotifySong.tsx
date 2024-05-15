@@ -17,14 +17,14 @@ function SpotifySong(props: iProps) {
   >("loading");
 
   useEffect(() => {
-    updateSong();
+    updateSong(true);
 
     const interval = setInterval(updateSong, 60e3);
 
     return () => clearInterval(interval);
   }, []);
 
-  async function updateSong() {
+  async function updateSong(retry = false) {
     console.log("Updating song - " + new Date().toLocaleTimeString());
 
     const [err, song] = await getSong();
@@ -32,6 +32,10 @@ function SpotifySong(props: iProps) {
     if (err) {
       setSongStatus("error");
       setSong(null);
+
+      if (retry) {
+        setTimeout(() => updateSong(), 1000);
+      }
       return;
     }
 

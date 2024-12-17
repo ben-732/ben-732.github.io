@@ -1,4 +1,4 @@
-const accounts = ["ben-732", "ben-mcmurtrie-tidy"];
+const accounts = ["ben-732", "ben-mcmurtrie-tidy", "ben-mcmurtrie-canva"];
 
 const ContributionLevels = {
   NONE: 0,

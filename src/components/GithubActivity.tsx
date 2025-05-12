@@ -52,7 +52,7 @@ function GithubActivity(props: iProps) {
 function SuccessContent({ activity }: { activity: iGithubActivity }) {
   return (
     <>
-      <div className="text-sm font-medium flex items-center gap-2 border-b-1 pb-1 mb-1">
+      <div className="text-sm font-medium flex items-center gap-2 border-b pb-1 mb-1">
         <FaGithub size={18} />
         Recent activity across accounts
         <div className="flex-grow" />
@@ -68,7 +68,7 @@ function SuccessContent({ activity }: { activity: iGithubActivity }) {
 function ErrorContent() {
   return (
     <>
-      <div className="text-sm font-medium flex items-center gap-2 border-b-1 pb-1 mb-1">
+      <div className="text-sm font-medium flex items-center gap-2 border-b pb-1 mb-1">
         <FaExclamationTriangle size={18} />
         Could not load github activity
       </div>
@@ -81,7 +81,7 @@ function ErrorContent() {
 function LoadingContent() {
   return (
     <>
-      <div className="text-sm font-medium flex items-center gap-2 border-b-1 pb-1 mb-1">
+      <div className="text-sm font-medium flex items-center gap-2 border-b pb-1 mb-1">
         <FaSpinner size={18} className="animate-spin" />
         Loading recent activity...
       </div>
@@ -126,6 +126,7 @@ function GithubGrid({
 
   useEffect(() => {
     const sc = createScope({ root }).add((self) => {
+      if (!self) return;
       animate(".activitySquare", {
         scale: [{ to: [0, 1.1] }, { to: 1 }],
 

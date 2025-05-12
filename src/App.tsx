@@ -6,7 +6,6 @@ import { FaEnvelope } from "react-icons/fa";
 import Card from "./components/Card";
 import SpotifySong from "./components/SpotifySong";
 import GithubActivity from "./components/GithubActivity";
-import { updateReturn } from "typescript";
 
 function App() {
   return (
@@ -20,12 +19,6 @@ function App() {
           <div className="flex flex-col m-2 text-gray-200">
             <span className=" text-white text-xl leading-tight">
               Software Engineer
-            </span>
-            <span className="text-white text-lg leading-tight">
-              Studying at the University of Auckland
-            </span>
-            <span className="text-white text-lg leading-tight">
-              Working for Tidy International
             </span>
           </div>
         </div>

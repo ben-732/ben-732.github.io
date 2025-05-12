@@ -6,6 +6,7 @@ import { FaEnvelope } from "react-icons/fa";
 import Card from "./components/Card";
 import SpotifySong from "./components/SpotifySong";
 import GithubActivity from "./components/GithubActivity";
+import { updateReturn } from "typescript";
 
 function App() {
   return (
@@ -17,13 +18,15 @@ function App() {
             Ben <br></br>McMurtrie
           </h1>
           <div className="flex flex-col m-2 text-gray-200">
-            <GlowText section="projects">Software Engineer</GlowText>
-            <GlowText section="education">
+            <span className=" text-white text-xl leading-tight">
+              Software Engineer
+            </span>
+            <span className="text-white text-lg leading-tight">
               Studying at the University of Auckland
-            </GlowText>
-            <GlowText section="experience">
-              Interning for Tidy International
-            </GlowText>
+            </span>
+            <span className="text-white text-lg leading-tight">
+              Working for Tidy International
+            </span>
           </div>
         </div>
 
@@ -59,7 +62,7 @@ function App() {
         </div>
       </div>
       <div className="flex flex-col items-center flex-grow">
-        <div className="mt-10 hidden xl:block">
+        <div className="mt-10 hidden lg:block">
           <GithubActivity rotate={-11}></GithubActivity>
         </div>
         <div className="flex-grow-[2]" />
@@ -70,15 +73,6 @@ function App() {
       </div>
     </div>
   );
-}
-
-interface iGlowTextProps {
-  children: React.ReactNode;
-  section: string;
-}
-
-function GlowText({ children }: iGlowTextProps) {
-  return <span className=" text-white text-xl leading-tight">{children}</span>;
 }
 
 export default App;

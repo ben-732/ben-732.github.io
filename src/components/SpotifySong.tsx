@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { CgLoadbarSound } from "react-icons/cg";
+import React, { useEffect, useCallback } from "react";
 import Card from "./Card";
 import { iProps as iCardProps } from "./Card";
 import { FaSpotify } from "react-icons/fa";
@@ -16,15 +15,7 @@ function SpotifySong(props: iProps) {
     "loading" | "idle" | "error"
   >("loading");
 
-  useEffect(() => {
-    updateSong(true);
-
-    const interval = setInterval(updateSong, 60e3);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  async function updateSong(retry = false) {
+  const updateSong = useCallback(async (retry = false) => {
     console.log("Updating song - " + new Date().toLocaleTimeString());
 
     const [err, song] = await getSong();
@@ -41,7 +32,15 @@ function SpotifySong(props: iProps) {
 
     setSong(song);
     setSongStatus("idle");
-  }
+  }, []);
+
+  useEffect(() => {
+    updateSong(true);
+
+    const interval = setInterval(updateSong, 60e3);
+
+    return () => clearInterval(interval);
+  }, [updateSong]);
 
   if (songStatus === "loading")
     return (

@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from "react";
 import Card, { iProps as iCardProps } from "./Card";
 import { FaExclamationTriangle, FaGithub, FaSpinner } from "react-icons/fa";
 import getGithubActivity, { iGithubActivity } from "../util/getGithubActivity";
-import { animate, createScope, Scope, stagger, utils } from "animejs";
+import { animate, createScope, Scope, stagger } from "animejs";
 
 interface iProps
   extends Omit<iCardProps, "children" | "href" | "target" | "hover"> {}
@@ -12,7 +12,6 @@ const SIZE = 14;
 const MARGIN = 2.5;
 const TOTAL_SIZE = SIZE + MARGIN;
 const BORDER = MARGIN;
-const BORDER_RADIUS = 3;
 
 const WEEKS = 30;
 
@@ -111,8 +110,6 @@ function GithubGrid({
   const daysArray = Array.from({ length: 7 }).map((_, i) => i);
 
   const dayIndex = (week: number, day: number) => day + week * 7;
-
-  const total = weeks * 7 - 1;
 
   const root = useRef(null);
   const scope = useRef<Scope | null>(null);

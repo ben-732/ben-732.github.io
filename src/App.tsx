@@ -21,12 +21,6 @@ function App() {
             <span className=" text-white text-xl leading-tight">
               Software Engineer
             </span>
-            <span className="text-white text-lg leading-tight">
-              Studying at the University of Auckland
-            </span>
-            <span className="text-white text-lg leading-tight">
-              Working for Tidy International
-            </span>
           </div>
         </div>
 

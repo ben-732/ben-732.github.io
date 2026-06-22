@@ -18,7 +18,7 @@ type tSongResponse = [true] | [false, iSpotifySong];
  */
 export async function getSong(): Promise<tSongResponse> {
   // In development mode return test data to avoid spamming the API
-  if (process.env.NODE_ENV === "development") {
+  if (import.meta.env.DEV) {
     console.log("Using test data");
     return new Promise((resolve) =>
       setTimeout(() => {

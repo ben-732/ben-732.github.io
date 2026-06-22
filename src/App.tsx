@@ -6,7 +6,6 @@ import { FaEnvelope } from "react-icons/fa";
 import Card from "./components/Card";
 import SpotifySong from "./components/SpotifySong";
 import GithubActivity from "./components/GithubActivity";
-import { updateReturn } from "typescript";
 
 function App() {
   return (

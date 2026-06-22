@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/index.tsx","./src/react-app-env.d.ts","./src/components/card.tsx","./src/components/githubactivity.tsx","./src/components/spotifysong.tsx","./src/util/getgithubactivity.ts","./src/util/getspotifysong.ts"],"version":"5.9.3"}

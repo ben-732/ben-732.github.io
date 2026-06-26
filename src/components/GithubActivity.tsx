@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from "react";
 import Card, { iProps as iCardProps } from "./Card";
 import { FaExclamationTriangle, FaGithub, FaSpinner } from "react-icons/fa";
 import getGithubActivity, { iGithubActivity } from "../util/getGithubActivity";
-import { animate, createScope, Scope, stagger, utils } from "animejs";
+import { animate, createScope, Scope, stagger } from "animejs";
 
 interface iProps
   extends Omit<iCardProps, "children" | "href" | "target" | "hover"> {}
@@ -12,7 +12,6 @@ const SIZE = 14;
 const MARGIN = 2.5;
 const TOTAL_SIZE = SIZE + MARGIN;
 const BORDER = MARGIN;
-const BORDER_RADIUS = 3;
 
 const WEEKS = 30;
 
@@ -50,6 +49,39 @@ function GithubActivity(props: iProps) {
 }
 
 function SuccessContent({ activity }: { activity: iGithubActivity }) {
+  // Calculate current streak (from today backwards)
+  const calculateCurrentStreak = (contributions: { count: number; level: number; date: string; }[]) => {
+    let streak = 0;
+    // Start from the end (most recent) and work backwards
+    for (let i = contributions.length - 1; i >= 0; i--) {
+      if (contributions[i].count > 0) {
+        streak++;
+      } else {
+        break;
+      }
+    }
+    return streak;
+  };
+
+  // Calculate biggest streak in the period
+  const calculateBiggestStreak = (contributions: { count: number; level: number; date: string; }[]) => {
+    let maxStreak = 0;
+    let currentStreak = 0;
+    
+    for (const contribution of contributions) {
+      if (contribution.count > 0) {
+        currentStreak++;
+        maxStreak = Math.max(maxStreak, currentStreak);
+      } else {
+        currentStreak = 0;
+      }
+    }
+    return maxStreak;
+  };
+
+  const currentStreak = calculateCurrentStreak(activity.contributions);
+  const biggestStreak = calculateBiggestStreak(activity.contributions);
+
   return (
     <>
       <div className="text-sm font-medium flex items-center gap-2 border-b pb-1 mb-1">
@@ -61,6 +93,20 @@ function SuccessContent({ activity }: { activity: iGithubActivity }) {
         </span>
       </div>
       <GithubGrid weeks={WEEKS} content={activity} />
+      
+      {/* Streak Statistics */}
+      <div className="flex justify-between items-center mt-2 pt-2 border-t border-gray-200 text-sm">
+        <div className="flex items-center gap-4">
+          <div className="text-center">
+            <div className="font-semibold text-gray-700">{currentStreak}</div>
+            <div className="text-xs text-gray-500">Current streak</div>
+          </div>
+          <div className="text-center">
+            <div className="font-semibold text-gray-700">{biggestStreak}</div>
+            <div className="text-xs text-gray-500">Longest streak</div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
@@ -111,8 +157,6 @@ function GithubGrid({
   const daysArray = Array.from({ length: 7 }).map((_, i) => i);
 
   const dayIndex = (week: number, day: number) => day + week * 7;
-
-  const total = weeks * 7 - 1;
 
   const root = useRef(null);
   const scope = useRef<Scope | null>(null);
